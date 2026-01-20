@@ -485,7 +485,7 @@ def handle_default_view(doctype, _list, show_customer_portal_fields):
     if not columns:
         if doctype == "Contact":
             columns = contact_default_columns
-            rows = ["name", "email_id", "creation"]
+            rows = ["name", "email_id", "creation", "image"]
         elif doctype == "TP Call Log":
             columns = call_log_default_columns
             rows = ["name", "caller", "receiver", "creation"]
