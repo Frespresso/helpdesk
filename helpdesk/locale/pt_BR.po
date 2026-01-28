@@ -5421,3 +5421,12 @@ msgstr "visualizou isto"
 
 msgid "will be moved to the selected ticket."
 msgstr "será movido para o ticket selecionado."
+
+msgid "Last Modified"
+msgstr "Última Modificação"
+
+msgid "Modified By"
+msgstr "Modificado Por"
+
+msgid "Created On"
+msgstr "Data de Criação"

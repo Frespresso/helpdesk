@@ -1,7 +1,7 @@
 <template>
   <FormControl
     v-if="filter.type == 'Check'"
-    :label="filter.label"
+    :label="__(filter.label)"
     type="checkbox"
     :checked="props.value"
     @change.stop="updateFilter(filter, $event.target.checked)"
@@ -13,14 +13,14 @@
     type="select"
     :model-value="props.value"
     :options="filter.options"
-    :placeholder="filter.label"
+    :placeholder="__(filter.label)"
     @change.stop="updateFilter(filter, $event.target.value)"
   />
   <Link
     v-else-if="filter.type === 'Link'"
     :value="props.value"
     :doctype="filter.options"
-    :placeholder="filter.label"
+    :placeholder="__(filter.label)"
     @change="(data) => updateFilter(filter, data)"
     class="w-44"
   />
@@ -30,19 +30,20 @@
     :is="filter.type === 'Date' ? DatePicker : DateTimePicker"
     :value="props.value"
     @change="(v) => updateFilter(filter, v)"
-    :placeholder="filter.label"
+    :placeholder="__(filter.label)"
   />
   <TextInput
     v-else
     :value="props.value"
     type="text"
-    :placeholder="filter.label"
+    :placeholder="__(filter.label)"
     @input.stop="debouncedFn(filter, $event.target.value)"
   />
 </template>
 <script setup>
 import { Link } from "@/components";
 import { useDebounceFn } from "@vueuse/core";
+import { __ } from "@/translation";
 import { DatePicker, DateTimePicker, FormControl, TextInput } from "frappe-ui";
 
 const props = defineProps({
